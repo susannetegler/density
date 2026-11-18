@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef5f2">
+  <title>Densitet – interaktiv fysiksimulering</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="physics.js" defer></script>
+  <script src="ui.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">INTERAKTIV FYSIKSIMULERING</p>
+        <h1>Densitet</h1>
+        <p class="intro">Byt vätska och prova olika föremål. Vad flyter, och vad sjunker?</p>
+      </div>
+      <button class="button button-quiet" id="reset-button" type="button">Återställ</button>
+    </header>
+
+    <div class="error-message" id="error-message" role="alert" hidden></div>
+
+    <section class="workspace" aria-label="Densitetssimulering">
+      <aside class="control-panel">
+        <section class="control-section">
+          <h2>1. Vätska</h2>
+          <p class="small-note">Tryck för att lägga i vätskan. Tryck igen för att ta bort den.</p>
+          <div class="liquid-list" id="liquid-list" role="group" aria-label="Välj vätska"></div>
+        </section>
+
+        <section class="control-section">
+          <h2>2. Föremål</h2>
+          <p class="small-note">Tryck för att lägga i föremålet. Tryck igen för att ta upp det.</p>
+          <div class="object-list" id="object-list"></div>
+        </section>
+      </aside>
+
+      <section class="experiment-panel" aria-label="Bägare och våg">
+        <div class="experiment-topline">
+          <span class="live-pill"><span class="live-dot"></span> SIMULERING</span>
+          <span class="experiment-hint" id="drop-hint">Tryck på en vätska eller ett föremål</span>
+        </div>
+
+        <div class="experiment-stage">
+          <div class="tank-wrap">
+            <div class="tank" id="tank" role="img" aria-label="Tom graderad mätbägare">
+              <div class="liquid" id="liquid" aria-hidden="true"></div>
+              <div class="liquid-surface" id="liquid-surface" aria-hidden="true"></div>
+              <div class="graduations" id="graduations" aria-hidden="true"></div>
+              <div class="placed-object" id="placed-object" hidden></div>
+              <div class="tank-glint" aria-hidden="true"></div>
+            </div>
+            <div class="tank-caption">MÄTBEGÄRARE <span>mL</span></div>
+          </div>
+
+          <div class="force-indicator" aria-hidden="true">
+            <span class="force-arrow up">↑</span>
+            <span>lyftkraft</span>
+            <span class="force-arrow down">↓</span>
+            <span>tyngdkraft</span>
+          </div>
+
+          <div class="scale-wrap">
+            <div class="scale-platform"></div>
+            <div class="scale-base">
+              <div class="scale-screen" aria-label="Vågens massa" aria-live="polite">
+                <strong id="mass-reading">0,000</strong><small>kg</small>
+              </div>
+              <span class="scale-brand">LAB&nbsp; / &nbsp;01</span>
+            </div>
+            <div class="scale-feet"><i></i><i></i></div>
+          </div>
+        </div>
+
+        <div class="measurements" aria-live="polite">
+          <div class="measurement">
+            <span class="measurement-icon volume-icon" aria-hidden="true">◫</span>
+            <div><span class="measurement-label">Avläst volym</span><strong id="volume-reading">0 <small>mL</small></strong></div>
+          </div>
+          <div class="measurement">
+            <span class="measurement-icon density-icon" aria-hidden="true">ρ</span>
+            <div><span class="measurement-label">Vätskans densitet</span><strong id="density-reading">–</strong></div>
+          </div>
+        </div>
+        <p class="result-message" id="result-message" aria-live="polite">Välj en vätska och fyll bägaren för att börja.</p>
+      </section>
+    </section>
+
+    <details class="explanation">
+      <summary>Så fungerar modellen</summary>
+      <div class="explanation-content" id="explanation-content">
+        <p>Föremål flyter när deras densitet är lägre än vätskans. Arkimedes princip beskriver lyftkraften från vätskan.</p>
+        <p>Vågen visar vätskans och föremålets sammanlagda massa. Volymen visar vätskenivån inklusive undanträngd vätska.</p>
+        <p>Modellen antar konstanta densiteter och tyngdaccelerationen 9,82 m/s². Den visar inte stänk, överrinning eller luftmotstånd.</p>
+      </div>
+    </details>
+    <footer>Fysik i praktiken <span>·</span> Densitet och Arkimedes princip</footer>
+  </main>
+</body>
+</html>

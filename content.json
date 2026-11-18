@@ -1,0 +1,21 @@
+{
+  "initialVolumeMl": 450,
+  "vesselCapacityMl": 1000,
+  "liquids": [
+    { "id": "water", "name": "Vatten", "densityKgM3": 998, "color": "#4aa9c5" },
+    { "id": "ethanol", "name": "Etanol", "densityKgM3": 789, "color": "#d9a64a" },
+    { "id": "mercury", "name": "Kvicksilver", "densityKgM3": 13534, "color": "#8799a6" }
+  ],
+  "objects": [
+    { "id": "beach-ball", "name": "Badboll", "densityKgM3": 40, "volumeCm3": 500, "shape": "beach-ball", "description": "En lätt badboll med luft inuti." },
+    { "id": "stone", "name": "Sten", "densityKgM3": 2600, "volumeCm3": 100, "shape": "stone", "description": "En kompakt sten." },
+    { "id": "wood", "name": "Träbit", "densityKgM3": 650, "volumeCm3": 200, "shape": "wood", "description": "En träbit som flyter i vatten." },
+    { "id": "lead", "name": "Blykula", "densityKgM3": 11340, "volumeCm3": 30, "shape": "lead", "description": "En liten kula av bly." },
+    { "id": "gold", "name": "Guldkula", "densityKgM3": 19320, "volumeCm3": 20, "shape": "gold", "description": "En liten kula av guld." }
+  ],
+  "modelText": [
+    "Föremål flyter när deras densitet är lägre än vätskans. Arkimedes princip beskriver lyftkraften från vätskan.",
+    "Vågen visar massan av allt innehåll, även ett föremål ensamt. Volymavläsningen följer vätskenivån och ökar när föremål tränger undan vätska. Utan vätska är avläsningen 0 mL, även om ett föremål står i bägaren.",
+    "Modellen antar konstanta densiteter och tyngdaccelerationen 9,82 m/s². Den visar inte stänk, överrinning eller luftmotstånd."
+  ]
+}
